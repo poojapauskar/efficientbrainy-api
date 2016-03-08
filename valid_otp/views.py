@@ -20,7 +20,7 @@ def JSONResponse(data = None, status = StatusCode.OK):
     else:
         return HttpResponse(status = StatusCode.NOT_FOUND)
 
-class Valid_otpList(generics.ListCreateAPIView):
+class Valid_otpList(generics.ListAPIView):
  def get(self, request, *args, **kwargs):
   access_token = request.GET.get('access_token')
   otp=request.META.get('HTTP_OTP')
@@ -39,7 +39,7 @@ class Valid_otpList(generics.ListCreateAPIView):
    print sys.stderr,obj1.created.replace(tzinfo=None)
    print sys.stderr,datetime.datetime.now()
 
-   if(c==True):
+   if(c==False):
     details.append(
                   {
                    'status':200,

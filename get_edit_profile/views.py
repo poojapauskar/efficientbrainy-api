@@ -28,9 +28,12 @@ def JSONResponse(data = None, status = StatusCode.OK):
     else:
         return HttpResponse(status = StatusCode.NOT_FOUND)
 
-def get_queryset(request):
+class Get_edit_profileUpdate(generics.ListCreateAPIView):
+ def get(self, request, *args, **kwargs):
   from django.http import JsonResponse
-  access_token = request.GET.get('access_token')
+  # access_token = request.GET.get('access_token')
+  access_token = request.META.get('HTTP_TOKEN')
+
   # access_token = '123456789'
   if(Register.objects.filter(token_generated=access_token).exists()):
     pass
@@ -46,20 +49,22 @@ def get_queryset(request):
 
   import sys
   print >> sys.stderr, access_token
-
-  # vz_id= Register.objects.filter(token_generated=access_token).values('vz_id')
-  # print >> sys.stderr, vz_id
   
+  Register.objects.filter(token_generated=access_token).update(name=request.META.get('HTTP_NAME'),email=request.META.get('HTTP_EMAIL'),phone=request.META.get('HTTP_PHONE'),city_id=request.META.get('HTTP_CITY'),address=request.META.get('HTTP_ADDRESS'))
+    #   return validated_data
+  details=[]
+  details.append(
+                  {
+                   'status':200,
+                   'message':'Updated',
+                  }
+                 ) 
+
+
+
+
   
-  profile=Register.objects.filter(token_generated=access_token).values('token_generated','username','password', 'name', 'email', 'phone','city_id','address','is_admin','created')[0],  
-  
-
-
-
-
-
-  
-  return JsonResponse(profile[0],safe=False)
+  return JsonResponse(details[0],safe=False)
 
 
        
