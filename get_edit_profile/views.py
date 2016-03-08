@@ -32,25 +32,25 @@ class Get_edit_profileUpdate(generics.ListCreateAPIView):
  def get(self, request, *args, **kwargs):
   from django.http import JsonResponse
   # access_token = request.GET.get('access_token')
-  access_token = request.META.get('HTTP_TOKEN')
+  pk = request.META.get('HTTP_PK')
 
   # access_token = '123456789'
-  if(Register.objects.filter(token_generated=access_token).exists()):
-    pass
-  else:
-    error=[]
-    error.append({
-            'status':'404',
-            'message':'access token not valid'
-      })
-    return JsonResponse(error[0],safe=False)
+  # if(Register.objects.filter(token_generated=access_token).exists()):
+  #   pass
+  # else:
+  #   error=[]
+  #   error.append({
+  #           'status':'404',
+  #           'message':'access token not valid'
+  #     })
+  #   return JsonResponse(error[0],safe=False)
 
 
 
-  import sys
-  print >> sys.stderr, access_token
+  # import sys
+  # print >> sys.stderr, access_token
   
-  Register.objects.filter(token_generated=access_token).update(name=request.META.get('HTTP_NAME'),email=request.META.get('HTTP_EMAIL'),phone=request.META.get('HTTP_PHONE'),city_id=request.META.get('HTTP_CITY'),address=request.META.get('HTTP_ADDRESS'))
+  Register.objects.filter(pk=pk).update(name=request.META.get('HTTP_NAME'),email=request.META.get('HTTP_EMAIL'),phone=request.META.get('HTTP_PHONE'),city_id=request.META.get('HTTP_CITY'),address=request.META.get('HTTP_ADDRESS'))
     #   return validated_data
   details=[]
   details.append(

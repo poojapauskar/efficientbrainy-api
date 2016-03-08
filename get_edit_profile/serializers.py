@@ -9,7 +9,7 @@ from random import randint
 class Get_edit_profileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Register
-        fields = ('token_generated','username','password', 'name', 'email', 'phone','city_id','address','is_admin','created')
+        fields = ('pk','token_generated','username','password', 'name', 'email', 'phone','city_id','address','is_admin','created')
     
 
     def create(self, validated_data): 
