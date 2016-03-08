@@ -8,10 +8,17 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'poojapauskar22'
+EMAIL_HOST_PASSWORD = 'pooja22222'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 SECRET_KEY = 'CanIHazS3cret?Meis1337'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -85,6 +92,7 @@ DATABASES = {
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 60 * 60 * 24 * 90 * 4,
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
 }
 

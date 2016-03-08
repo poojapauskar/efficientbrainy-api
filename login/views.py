@@ -23,7 +23,8 @@ class LoginList(generics.ListCreateAPIView):
   object1=request.META.get('HTTP_USERNAME')
   details=[]
   import sys
-  print >> sys.stderr, request.META.get('HTTP_USERNAME')          
+  print >> sys.stderr, request.META.get('HTTP_USERNAME') 
+  print >> sys.stderr, request.META.get('HTTP_PASSWORD')         
   if(Register.objects.filter(username=request.META.get('HTTP_USERNAME')).exists()):
    if(Register.objects.filter(username=request.META.get('HTTP_USERNAME'),password=request.META.get('HTTP_PASSWORD')).exists()):
     from oauth2_provider.settings import oauth2_settings
@@ -39,10 +40,10 @@ class LoginList(generics.ListCreateAPIView):
      User.objects.filter(username=request.META.get('HTTP_USERNAME')).delete()
     else:
      pass
-    user=User.objects.create(username=request.META.get('HTTP_USERNAME'),password="efficient-brainy")
+    user=User.objects.create(username=request.META.get('HTTP_USERNAME'),password="efficient-brainy-project")
     expire_seconds = oauth2_settings.user_settings['ACCESS_TOKEN_EXPIRE_SECONDS']
     scopes = oauth2_settings.user_settings['SCOPES']
-    application = Application.objects.get(name="efficient-brainy")
+    application = Application.objects.get(name="efficient-brainy-project")
     expires = datetime.now() + timedelta(seconds=expire_seconds)
     access_token = AccessToken.objects.create(
         user=user,
