@@ -70,6 +70,7 @@ urlpatterns = patterns('',
     url(r'^', include('city.urls')),
     url(r'^', include('get_edit_city.urls')),
     url(r'^', include('get_edit_profile.urls')),
+    url(r'^', include('is_admin_login.urls')),
 )
 
 
