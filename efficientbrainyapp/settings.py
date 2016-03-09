@@ -43,6 +43,10 @@ INSTALLED_APPS = (
     'get_edit_profile',
     'oauth2_provider',
     'is_admin_login',
+    'get_city_from_id',
+    'delete_user',
+    'delete_city',
+    'get_vendor_from_city_id',
 )
 
 MIDDLEWARE_CLASSES = (

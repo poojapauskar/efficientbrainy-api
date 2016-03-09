@@ -71,6 +71,10 @@ urlpatterns = patterns('',
     url(r'^', include('get_edit_city.urls')),
     url(r'^', include('get_edit_profile.urls')),
     url(r'^', include('is_admin_login.urls')),
+    url(r'^', include('get_city_from_id.urls')),
+    url(r'^', include('delete_user.urls')),
+    url(r'^', include('delete_city.urls')),
+    url(r'^', include('get_vendor_from_city_id.urls')),
 )
 
 
