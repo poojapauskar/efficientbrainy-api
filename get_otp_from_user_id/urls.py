@@ -1,14 +1,16 @@
 from django.conf.urls import include
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
-from generate_otp import views
-
-
+from get_otp_from_user_id import views
+#from get_list.views import get_queryset
 
 urlpatterns = [
-    url(r'^generate_otp/$', views.CustomListView.as_view()),
-    url(r'^generate_otp/list/$', views.Generate_otpList.as_view()),
-    url(r'^delete_otp/$', views.Delete_otp.as_view()),
+    url(r'^get_otp_from_user_id/$', views.CustomListView.as_view()),
+    #url(r'^get_list/$', get_queryset),
+    #url(r'^get_list/(?P<vz_id>\d+)/$', views.Get_listDetail.as_view(), name='urlname'),
+
+    
+    
 	
 ]
 

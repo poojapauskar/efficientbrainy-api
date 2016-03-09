@@ -47,6 +47,8 @@ INSTALLED_APPS = (
     'delete_user',
     'delete_city',
     'get_vendor_from_city_id',
+    'send_otp_msg_mail',
+    'get_otp_from_user_id',
 )
 
 MIDDLEWARE_CLASSES = (
