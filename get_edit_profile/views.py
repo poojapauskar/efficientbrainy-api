@@ -6,7 +6,7 @@ from rest_framework import generics
 from django.shortcuts import get_object_or_404
 
 class Get_edit_profileList(generics.ListCreateAPIView):
- queryset = Register.objects.all()
+ queryset = Register.objects.filter(is_admin=0)
  serializer_class = Get_edit_profileSerializer
  # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
