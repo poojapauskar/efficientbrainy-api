@@ -69,7 +69,7 @@ class Resend_otpList(generics.ListAPIView):
       details=[]
       details.append({
               'status':'200',
-              'objects':list(Generate_otp.objects.filter(user_id=user.pk).values('otp','user_id','validity','created','file_no')
+              'objects':list(Generate_otp.objects.filter(user_id=user.pk).values('otp','user_id','validity','created','file_no'))
         })
 
 
