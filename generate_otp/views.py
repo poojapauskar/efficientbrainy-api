@@ -37,6 +37,8 @@ class CustomListView(generics.ListAPIView):
       from django.http import JsonResponse
 
       access_token = request.GET.get('access_token')
+      file_no =  request.META.get('HTTP_FILE_NO')
+    
       # access_token=''
 
       import sys
@@ -62,7 +64,7 @@ class CustomListView(generics.ListAPIView):
        Generate_otp.objects.filter(user_id=user.pk).delete() 
 
       otp_generated=str(random.randint(100000, 999999))
-      objects=Generate_otp.objects.create(user_id=user.pk,otp=otp_generated,validity=now_plus_60)
+      objects=Generate_otp.objects.create(user_id=user.pk,otp=otp_generated,validity=now_plus_60,file_no=file_no)
 
       # from pprint import pprint
       # import requests
@@ -103,7 +105,7 @@ class CustomListView(generics.ListAPIView):
       details=[]
       details.append({
               'status':'200',
-              'objects':list(Generate_otp.objects.filter(user_id=user.pk).values('otp','user_id','validity','created'))
+              'objects':list(Generate_otp.objects.filter(user_id=user.pk).values('otp','user_id','validity','created','file_no'))
         })
 
 

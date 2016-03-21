@@ -21,6 +21,7 @@ class Generate_otp(models.Model):
  user_id = models.CharField(max_length=100, blank=True,default='')
  otp = models.CharField(max_length=100, blank=True,default='')
  validity = models.CharField(max_length=100, blank=True,default='')
+ file_no = models.CharField(max_length=100, blank=True,default='')
     
  class Meta:
   ordering = ('created',)
