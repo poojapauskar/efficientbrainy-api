@@ -49,6 +49,7 @@ class CustomListView(ListView):
       		'status':200,
           'otp':otp,
           'vendor_name':user.name,
+          'vendor_username':user.username,
           'vendor_id':user.pk,
           'file_no':file_no,
         })
