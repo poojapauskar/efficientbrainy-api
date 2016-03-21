@@ -41,6 +41,7 @@ class CustomListView(ListView):
       user_id=request.META.get('HTTP_ID')
       user=Register.objects.get(pk=user_id)
       otp=list(Generate_otp.objects.filter(user_id=user_id).values('otp'))
+      file_no=list(Generate_otp.objects.filter(user_id=user_id).values('file_no'))
       
 
       details=[]
@@ -49,6 +50,7 @@ class CustomListView(ListView):
           'otp':otp,
           'vendor_name':user.name,
           'vendor_id':user.pk,
+          'file_no':file_no,
         })
       
       return JsonResponse(details[0],safe=False)
