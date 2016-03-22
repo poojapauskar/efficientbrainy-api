@@ -33,6 +33,7 @@ class Register(models.Model):
     address = models.TextField(blank=True,default='')
     token_generated = models.TextField(blank=True,default='')
     is_admin = models.CharField(max_length=100, blank=True,default='')
+    logged_in = models.CharField(max_length=100, blank=True,default='')
 
    # photo = models.ImageField(upload_to="projectimg/",storage=fs, null=True, blank=True)
     

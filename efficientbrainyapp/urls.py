@@ -77,6 +77,7 @@ urlpatterns = patterns('',
     url(r'^', include('get_vendor_from_city_id.urls')),
     url(r'^', include('send_otp_msg_mail.urls')),
     url(r'^', include('get_otp_from_user_id.urls')),
+    url(r'^', include('update_logged_in.urls')),
 )
 
 

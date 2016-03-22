@@ -27,7 +27,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Register
-        fields = ('pk','token_generated','username','password', 'name', 'email', 'phone','city_id','address','is_admin','created')
+        fields = ('pk','token_generated','username','password', 'name', 'email', 'phone','city_id','address','is_admin','created','logged_in')
         #write_only_fields = ('firstame', 'lastname')
 
     def create(self, validated_data):
@@ -38,7 +38,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         if Register.objects.filter(username=validated_data.get('username')).exists():
           return validated_data
         else:
-          objects=Register.objects.create(is_admin='0',token_generated=validated_data.get('token_generated'),name=validated_data.get('name'),username=validated_data.get('username'),password=validated_data.get('password'),email=validated_data.get('email'),phone=validated_data.get('phone'),city_id=validated_data.get('city_id'),address=validated_data.get('address'))
+          objects=Register.objects.create(logged_in='',is_admin='0',token_generated=validated_data.get('token_generated'),name=validated_data.get('name'),username=validated_data.get('username'),password=validated_data.get('password'),email=validated_data.get('email'),phone=validated_data.get('phone'),city_id=validated_data.get('city_id'),address=validated_data.get('address'))
         
         # print >> sys.stderr, objects
         return objects

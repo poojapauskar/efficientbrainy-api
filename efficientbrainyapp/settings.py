@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'get_vendor_from_city_id',
     'send_otp_msg_mail',
     'get_otp_from_user_id',
+    'update_logged_in',
 )
 
 MIDDLEWARE_CLASSES = (
