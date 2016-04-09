@@ -14,3 +14,4 @@ django-oauth2-provider==0.2.4
 oauthlib==0.7.2
 requests==2.8.0
 httplib2==0.8
+django-rest-swagger==0.3.5
