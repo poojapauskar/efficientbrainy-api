@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'send_otp_msg_mail',
     'get_otp_from_user_id',
     'update_logged_in',
+    'rest_framework_swagger',
 )
 
 MIDDLEWARE_CLASSES = (
